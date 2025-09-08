@@ -17,17 +17,18 @@ CREATE TABLE segments ( id   SERIAL       NOT NULL UNIQUE
                       , PRIMARY KEY (id)
                       );
 					  
-CREATE TABLE programs ( id          SERIAL       NOT NULL UNIQUE      
-                      , name        VARCHAR(255) NOT NULL      
-                      , description VARCHAR(255) NOT NULL      
-                      , segment_id  INTEGER      NOT NULL      
+CREATE TABLE programs ( id               SERIAL       NOT NULL UNIQUE      
+                      , name             VARCHAR(255) NOT NULL      
+                      , description      VARCHAR(255) NOT NULL      
+                      , segment_id       INTEGER      NOT NULL 
+                      , quantity_modules INTEGER      NOT NULL
                       , PRIMARY KEY (id)      
                       , FOREIGN KEY (segment_id) REFERENCES segments(id)
                       );
 
 CREATE TABLE plans ( id                    SERIAL       NOT NULL UNIQUE      
                    , name                  VARCHAR(255) NOT NULL
-                   , value                 DECIMAL           NOT NULL      
+                   , value                 DECIMAL      NOT NULL      
                    , PRIMARY KEY(id)
                    );
 
