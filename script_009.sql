@@ -1,5 +1,8 @@
 ALTER TABLE plans
-ALTER COLUMN value MONEY NOT NULL
+ALTER COLUMN value MONEY;
+
+
+DROP FUNCTION fn_functionalities_by_plan(pPlanId INTEGER);
 
 CREATE OR REPLACE FUNCTION fn_functionalities_by_plan(pPlanId INTEGER)
 RETURNS TABLE (
