@@ -74,6 +74,8 @@ ADD FOREIGN KEY (company_id) REFERENCES companies(id);
 ALTER TABLE goals 
 DROP CONSTRAINT goals_worker_program_id_fkey;
 
+ALTER TABLE goals 
+DROP COLUMN worker_program_id;
 
 CREATE TABLE worker_goals (
     id SERIAL NOT NULL,
@@ -83,3 +85,5 @@ CREATE TABLE worker_goals (
     FOREIGN KEY (goal_id) REFERENCES goals(id),
     PRIMARY KEY (id)
 );
+
+
