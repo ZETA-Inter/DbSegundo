@@ -15,7 +15,7 @@ BEGIN
     RETURN QUERY
     SELECT 
         g.description AS goal,
-        wg.completed  AS completed,
+        wg.completed  AS completed
     FROM 
         goals g
     JOIN worker_goals wg ON g.id = wg.goal_id
