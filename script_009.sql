@@ -1,5 +1,5 @@
 ALTER TABLE plans
-ALTER COLUMN value MONEY;
+ALTER COLUMN value DOUBLE PRECISION;
 
 
 DROP FUNCTION fn_functionalities_by_plan(pPlanId INTEGER);
@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION fn_functionalities_by_plan(pPlanId INTEGER)
 RETURNS TABLE (
     plan_id            INTEGER,
     plan_name          VARCHAR(50),
-    plan_value         MONEY,
+    plan_value         DOUBLE PRECISION,
     functionality_id   INTEGER,
     functionality_name VARCHAR
 )
