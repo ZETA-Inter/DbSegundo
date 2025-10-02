@@ -1,0 +1,43 @@
+name: Apply Database Changes (Simulated)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  apply-sql:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: prod_db
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGHOST: localhost
+      PGPORT: 5432
+      PGDATABASE: prod_db
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for Postgres
+        run: until pg_isready -h localhost -p 5432; do sleep 1; done
+
+      - name: Apply SQL scripts
+        run: |
+          for f in *.sql; do
+            echo "Applying $f"
+            psql -f "$f"
+          done
