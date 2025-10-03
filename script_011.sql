@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION fn_workers_by_program(pCompanyId INTEGER, pProgramId INTEGER)
+RETURNS TABLE (
+    worker_id   VARCHAR(50),
+    worker_name BOOLEAN
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT 
+        w.id   AS worker_id,
+        w.name AS worker_name
+    FROM 
+        workers w
+    JOIN worker_programs wp 
+      ON w.id = wp.worker_id
+    WHERE wp.program_id = pProgramId
+      AND w.company_id  = pProgramId;
+END;
+$$;
