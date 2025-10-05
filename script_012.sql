@@ -9,7 +9,7 @@ BEGIN
 		RAISE EXCEPTION 'Erro: company_id inválido';
 	END IF;
 
-	IF NOT EXISTS (SELECT 1 FROM worker_programs wp JOIN workers w ON w.id = wp.worker_id WHERE w.company_id = pCompany and wp.program_id = pProgramId)
+	IF NOT EXISTS (SELECT 1 FROM worker_programs wp JOIN workers w ON w.id = wp.worker_id WHERE w.company_id = pCompany and wp.program_id = pProgramId) THEN
 		RAISE EXCEPTION 'Erro: não existem produtores com esse curso';
 	END IF; 
 
