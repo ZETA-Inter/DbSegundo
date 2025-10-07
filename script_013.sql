@@ -14,7 +14,7 @@ ADD FOREIGN KEY (worker_program_id) REFERENCES worker_programs(id);
 CREATE OR REPLACE FUNCTION fn_most_recent_progress( pWorkerId  INTEGER
                                                   , pProgramId INTEGER
 												  )
-RETURNS TABLE (worker_id INTEGER, points INTEGER, progress_percentage DECIMAL) AS
+RETURNS TABLE (worker INTEGER, points INTEGER, progress_percentage DECIMAL) AS
 $$
 DECLARE
     vWorkerProgramId INTEGER;
