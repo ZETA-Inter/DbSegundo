@@ -9,7 +9,7 @@ BEGIN
 		RAISE EXCEPTION 'Erro: company_id inválido';
 	END IF;
 
-	IF NOT EXISTS (SELECT 1 FROM worker_programs wp JOIN workers w ON w.id = wp.worker_id WHERE w.company_id = pCompany and wp.program_id = pProgramId) THEN
+	IF NOT EXISTS (SELECT 1 FROM worker_programs wp JOIN workers w ON w.id = wp.worker_id WHERE w.company_id = pCompanyId and wp.program_id = pProgramId) THEN
 		RAISE EXCEPTION 'Erro: não existem produtores com esse curso';
 	END IF; 
 
@@ -43,11 +43,11 @@ BEGIN
 
     -- Validate that all worker_ids exist
     IF EXISTS (
-        SELECT unnest(pWorkerIds) EXCEPT SELECT worker_id FROM workers
+        SELECT unnest(pWorkerIds) EXCEPT SELECT id FROM workers
     ) THEN
         RAISE EXCEPTION 'Erro: Existem worker_ids inválidos';
     END IF;
-
+	
     -- Insert for each worker
     INSERT INTO worker_goals (worker_id, goal_id, completed)
     SELECT w, pGoalId, FALSE
