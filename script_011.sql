@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION fn_workers_by_program(pCompanyId INTEGER, pProgramId INTEGER)
 RETURNS TABLE (
-    worker_id   VARCHAR(50),
-    worker_name BOOLEAN
+    worker_id   INTEGER,
+    worker_name VARCHAR(100)
 )
 LANGUAGE plpgsql
 AS $$
