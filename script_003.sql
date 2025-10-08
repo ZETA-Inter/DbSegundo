@@ -13,7 +13,7 @@ BEGIN
 END;
 $$;
 
-CALL sp_create_responsible ('Raissa', 'Arruda', 'trigemeosmatias@gmail.com', 7)
+CALL sp_create_responsible ('Raissa', 'Arruda', 'trigemeosmatias@gmail.com', 7);
 
 
 CREATE OR REPLACE FUNCTION fn_functionalities_by_plan(
@@ -34,4 +34,4 @@ BEGIN
 END;
 $$;
 
-SELECT fn_functionalities_by_plan(1)
+SELECT fn_functionalities_by_plan(1);
