@@ -1,5 +1,5 @@
 ALTER TABLE plans
-ALTER COLUMN value DOUBLE PRECISION;
+ALTER COLUMN value type DOUBLE PRECISION;
 
 
 DROP FUNCTION fn_functionalities_by_plan(pPlanId INTEGER);
