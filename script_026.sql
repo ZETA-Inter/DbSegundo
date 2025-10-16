@@ -1,0 +1,3 @@
+ALTER TABLE workers
+ALTER COLUMN company_id TYPE INTEGER,
+ALTER COLUMN company_id DROP NOT NULL;
