@@ -1,0 +1,12 @@
+ALTER TABLE companies
+  ADD COLUMN status VARCHAR(10) NOT NULL DEFAULT 'Active'
+
+ALTER TABLE workers
+  ADD COLUMN status VARCHAR(10) NOT NULL DEFAULT 'Inactive'
+
+ALTER TABLE companies
+  ADD COLUMN created_at DATETIME NOT NULL DEFAULT current_date
+
+
+ALTER TABLE workers
+  ADD COLUMN created_at DATETIME NOT NULL DEFAULT current_date
