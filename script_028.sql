@@ -26,16 +26,16 @@ BEGIN
 						VALUES ( pCompanyId
 							   , pDescription
 							   );
+	ELSE
+		INSERT INTO goals ( company_id
+				          , description
+			              , program_id
+						  )
+						VALUES ( pCompanyId
+							   , pDescription
+							   , pProgramId
+							   );
 	END IF;
-	
-	INSERT INTO goals ( company_id
-			          , description
-		              , program_id
-					  )
-					VALUES ( pCompanyId
-						   , pDescription
-						   , pProgramId
-						   );
 	
 END
 $$;
