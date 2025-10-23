@@ -1,4 +1,3 @@
--- Filtro para Company
 CREATE OR REPLACE FUNCTION fn_goals_by_company(pCompanyId INTEGER)
 RETURNS TABLE (
     goal       VARCHAR(50),
@@ -16,8 +15,6 @@ BEGIN
     WHERE g.company_id = pCompanyId;
 END;
 $$;
-
--- Filtro para Company e Program
 
 CREATE OR REPLACE FUNCTION fn_goals_by_company(pCompanyId INTEGER, pProgramId INTEGER)
 RETURNS TABLE (
