@@ -2,9 +2,6 @@
 ALTER TABLE progresses
 DROP COLUMN worker_id;
 
-ALTER TABLE progresses
-DROP CONSTRAINT progresses_worker_id_fkey;
-
 ALTER TABLE progresses 
 ADD COLUMN worker_program_id INTEGER;
 

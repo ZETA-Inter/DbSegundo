@@ -1,3 +1,5 @@
+DROP FUNCTION fn_functionalities_by_plan(integer);
+
 CREATE OR REPLACE FUNCTION fn_functionalities_by_plan( pPlanId INTEGER )
 RETURNS TABLE ( plan_id            INTEGER
               , plan_name          VARCHAR(50)

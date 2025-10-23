@@ -13,8 +13,6 @@ BEGIN
 END;
 $$;
 
-CALL sp_create_responsible ('Raissa', 'Arruda', 'trigemeosmatias@gmail.com', 7);
-
 
 CREATE OR REPLACE FUNCTION fn_functionalities_by_plan(
 	p_plan_id INTEGER
@@ -34,4 +32,3 @@ BEGIN
 END;
 $$;
 
-SELECT fn_functionalities_by_plan(1);

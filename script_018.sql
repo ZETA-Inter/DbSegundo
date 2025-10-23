@@ -1,5 +1,5 @@
 ALTER TABLE workers
-ALTER COLUMN company_id SET NULL;
+ALTER COLUMN company_id DROP NOT NULL;
 
 ALTER TABLE workers
 DROP COLUMN birthdate;
