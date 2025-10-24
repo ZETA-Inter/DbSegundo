@@ -1,0 +1,2 @@
+ALTER TABLE goals 
+ ADD COLUMN name VARCHAR(50) NOT NULL DEFAULT 'Meta sem Nome';
