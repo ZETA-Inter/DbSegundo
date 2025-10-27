@@ -1,0 +1,42 @@
+name: Deploy SQL
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.sql'
+
+jobs:
+  deploy:
+    name: Executa novos scripts em produção
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Needed to detect changed files
+
+      - name: Identifica scripts que foram alterados
+        id: changed
+        run: |
+          git diff --name-only HEAD^ HEAD -- '*.sql' > changed_files.txt
+          echo "Arquivos SQL alterados:"
+          cat changed_files.txt
+          echo "changed_files=$(cat changed_files.txt | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Executa scripts SQL em produção
+        if: steps.changed.outputs.changed_files != ''
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          echo "Applying changes..."
+          for file in ${{ steps.changed.outputs.changed_files }}; do
+            echo "Running $file..."
+            psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f "$file"
+          done
+
+      - name: Sem alterações
+        if: steps.changed.outputs.changed_files == ''
+        run: echo "No SQL changes detected — skipping deployment."
