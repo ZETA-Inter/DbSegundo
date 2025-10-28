@@ -41,7 +41,7 @@ VALUES
 --------------------------------------------------
 -- WORKER com COMPANY
 INSERT INTO workers (email, name, company_id) VALUES
-('gabriel.claro@agrosul.com.br', 'Gabriel Claro Ferreiro', 1)
+('gabriel.claro@agrosul.com.br', 'Gabriel Claro Ferreiro', 1),
 ('ana.clara@agrosul.com.br', 'Ana Clara Moreira', 1),
 ('joao.pedro@agrosul.com.br', 'João Pedro Alves', 1),
 ('maria.luiza@agrosul.com.br', 'Maria Luiza Ferreira', 1),
@@ -152,7 +152,6 @@ INSERT INTO workers (email, name) VALUES
 ('marcelo.souza@hotmail.com', 'Marcelo Souza Ribeiro'),
 ('bianca.costa@gmail.com', 'Bianca Costa Fernandes'),
 ('andre.rocha@gmail.com', 'André Rocha Lima');
-
 
 --------------------------------------------------
  --               PROGRAM TYPES
@@ -636,6 +635,7 @@ INSERT INTO payments (worker_id, company_id, plan_id, amount, paid_date, frequen
 (39, 3, 1, 200.00, '2025-10-20', 'Mensal'),
 (40, 4, 2, 350.00, '2025-10-20', 'Mensal');
 
+
 --------------------------------------------------
  --                WORKER_GOALS
 -------------------------------------------------
@@ -709,3 +709,7 @@ INSERT INTO worker_goals (worker_id, goal_id, completed) VALUES
 (58, 8, FALSE),
 (59, 1, TRUE),
 (60, 2, TRUE);
+
+
+
+ 

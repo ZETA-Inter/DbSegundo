@@ -1,8 +1,8 @@
 ALTER TABLE companies
-  ADD COLUMN status VARCHAR(10) NOT NULL DEFAULT 'Active';
+  ADD COLUMN active BOOLEAN NOT NULL DEFAULT 'true';
 
 ALTER TABLE workers
-  ADD COLUMN status VARCHAR(10) NOT NULL DEFAULT 'Inactive';
+  ADD COLUMN active BOOLEAN NOT NULL DEFAULT 'false';
 
 ALTER TABLE companies
   ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT current_date;
